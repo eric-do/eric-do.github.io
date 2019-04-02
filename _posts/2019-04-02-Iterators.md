@@ -45,5 +45,9 @@ console.log(halfArray);     //[1, 2, 3, 4, 5]
 ```
 
 ## Why do we use iterators?
-1. We can easily change the code of the list implementation without needing to touch the code where the list is being iterated. This make the code more reliable and extensible.
-2. We keep code compartmentalized and clearn. Function A might require information from Function B in the form of a list, but it has no need to know how that list is created. It's like a Product Manager asking a Web Developer for a new website. The PM passes the request but should not be overly concerned with the techical implementation.
+
+We can easily change the code of the list implementation without needing to touch the code where the list is being iterated. This make the code more reliable and extensible.
+
+Function A might require information from Function B in the form of a list, but it has no need to know how that list is created. 
+
+It's like a Product Manager asking a Web Developer for a new website. The PM passes the request but should not be overly concerned with the techical implementation :)
