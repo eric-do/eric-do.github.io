@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+I'm just a dude with a lot of passions trying to be great at (someties) too many things. You can always find me doing one of the following:
+- Training Brazilian Jiu Jitsu
+- Practicing Yoga
+- Riding my bicycle in the California hills and backroads
+- Feverishly coding whatever project I'm currently on
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[ericdo.617@gmail.com](mailto:ericdo.617@gmail.com)
