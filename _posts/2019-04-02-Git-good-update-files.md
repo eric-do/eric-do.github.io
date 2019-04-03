@@ -3,7 +3,7 @@ layout: post
 title: Git Gud - Updating Files
 comments: true
 ---
-The general flow for updating files (not including pulling/merging right now) is:
+The general flow for updating files (not including pulling/merging) is:
 1. Update file(s) locally, save
 2. Add file(s) to be commited. <br />Note: it's common you'll update multiple files but only want to commit a subset, so it's best to get in the habit of manually adding each file to be committed.
 3. Commit changes
