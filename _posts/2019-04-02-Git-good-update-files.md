@@ -1,33 +1,8 @@
 ---
 layout: post
-title: Git Gud, Newb
+title: Git Gud - Updating Files
 comments: true
 ---
-
-This post is meant to be a rough guide to Git and spells out some things that weren't clear to me as I was figuring it out. It assumes the user can install git on their own.
-
-## Aliases
-Common git commands can be shorted via aliases. I put this near the top because if I'm ever on a different machine and need a reference for setting up the aliases I'm used to, I'll find them here.
-
-Aliases are updated in your .gitconfig file, which is stored in your $HOME directory. To find your home directory:
-
-```
-Erics-MacBook:_posts ericdo$ echo $HOME
-```
-
-Then add to the file:
-```
-[alias]
-  co = checkout
-  ci = commit
-  st = status
-  br = branch
-  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-  type = cat-file -t
-  dump = cat-file -p
-```
-  
-## Updating files
 The general flow for updating files (not including pulling/merging right now) is:
 1. Update file(s) locally, save
 2. Add file(s) to be commited. <br />Note: it's common you'll update multiple files but only want to commit a subset, so it's best to get in the habit of manually adding each file to be committed.
