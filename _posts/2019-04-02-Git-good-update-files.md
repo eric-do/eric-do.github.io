@@ -17,16 +17,10 @@ Changes not staged for commit:
 
         modified:   2020-04-02-Git-good.md
 ```
-You'll want to then run steps 2-4 above:
+You'll want to then run steps 2-4 above. Git output has been removed for brevity.
 
 ```
 Erics-MacBook:_posts ericdo$ git add 2020-04-02-Git-good.md
 Erics-MacBook:_posts ericdo$ git commit -m "Added instructions on how to update files"
-[master 0f7ec66] Added instructions on how to update files
- 1 file changed, 53 insertions(+)
- create mode 100755 _posts/2020-04-02-Git-good.md
 Erics-MacBook:_posts ericdo$ git push origin master
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 333 bytes | 333.00 KiB/s, done.
-Total 3 (delta 2), reused 0 (delta 0)
 ```
