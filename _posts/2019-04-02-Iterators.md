@@ -4,7 +4,6 @@ title: Iterators
 comments: true
 ---
 
-## What is an iterator?
 An iterator is a function applied to each element of a collection as we *iterate* the collection.
 
 Typically the iterator is defined outside a given function, and passed to the function as a parameter. This keeps the iterator and the function/collection blind to each other's implementation.
