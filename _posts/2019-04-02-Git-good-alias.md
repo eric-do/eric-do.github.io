@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Git Gud - Aliases
+title: "Git Gud: Aliases"
 comments: true
 ---
 Common git commands can be shorted via aliases. 

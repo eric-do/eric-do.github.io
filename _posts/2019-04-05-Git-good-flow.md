@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Git Gud - GitHub flow
+title: "Git Gud: GitHub flow"
 comments: true
 ---
 

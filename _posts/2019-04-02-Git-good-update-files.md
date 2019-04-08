@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Git Gud - Updating Files
+title: "Git Gud: Updating Files"
 comments: true
 ---
 The general flow for updating files (not including pulling/merging) is:
