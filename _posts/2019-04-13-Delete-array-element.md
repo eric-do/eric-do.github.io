@@ -13,6 +13,7 @@ for (var i = 0; i < 10000; i++) {
 }
 ```
 **Using splice to mutate array**
+
 You can splice by the index of the given. You should include '1' as the second parameter value to indicate the removal of only one element.
 
 ```
@@ -29,6 +30,7 @@ VM15047:3 default: 0.023193359375ms
 So pretty good. 0.023ms to process.
 
 **Using filter to return a new array**
+
 Given the same array, you can filter a new array where values don't match 5000.
 ```
 newArr = arr.filter(function(element) {
