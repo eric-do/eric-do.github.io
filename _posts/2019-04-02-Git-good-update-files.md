@@ -2,6 +2,7 @@
 layout: post
 title: "Git Gud: Updating Files"
 comments: true
+published: false
 ---
 The general flow for updating files (not including pulling/merging) is:
 1. Update file(s) locally, save

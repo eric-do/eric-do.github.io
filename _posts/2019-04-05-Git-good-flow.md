@@ -2,7 +2,7 @@
 layout: post
 title: "Git Gud: GitHub flow"
 comments: true
-hidden: true
+published: false
 ---
 
 I made a deck based on what we learned from Hack Reactor, but modified it to include git commands. The deck summarizes the git workflow.

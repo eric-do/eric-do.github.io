@@ -10,7 +10,7 @@ Typically the iterator is defined outside a given function, and passed to the fu
 
 For instance, we may have a function called *processNumbers(iterator, a, b)*.
 
-```
+```javascript
 function processNumbers(iterator, array) {
   return array.map(function(value){
       return iterator(value);
@@ -22,7 +22,7 @@ This function is blind as to how it processes numbers. It only takes accepts the
 
 Now we define some iterating functions:
 
-```
+```javascript
 function double(val) {
     return val * 2;
 }
@@ -34,7 +34,7 @@ function half(val) {
 
 Now we can process an array passing in the function of our choice as an iterator:
 
-```
+```javascript
 var array = [2, 4, 6, 8, 10];
 var doubleArray = processNumbers(double, array);
 var halfArray = processNumbers(half, array);

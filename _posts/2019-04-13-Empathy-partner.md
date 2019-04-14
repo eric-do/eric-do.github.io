@@ -2,6 +2,7 @@
 layout: post
 title: "Empathy as a paired partner"
 comments: true
+date: 2019-04-13 00:00:01
 ---
 
 The first week of Hack Reactor has come to a close, and I wanted to write about something I learned beyond coding.
