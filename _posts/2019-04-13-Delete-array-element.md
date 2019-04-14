@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deleting single array elements"
+title: "Performance analysis: deleting single array elements"
 comments: true
 ---
 My partner and I came up on the need to delete array elements this last sprint. I thought I'd document a few ways to do so. We tried a couple different methods, and I'm doing a little research to see which is fastest.
