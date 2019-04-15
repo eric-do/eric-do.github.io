@@ -1,115 +1,47 @@
 ---
 layout: post
-title: "This, apply, call, bind"
+title: "I bombed today's self assessment"
 comments: true
-date: 2019-04-13 00:01:00
 ---
-No matter what Marcus says, THIS is hard as hell to understand.
+I told myself coming in that whatever the requirements were, I need to be very cautious about misinterpreting them. Recall from my [previous post](https://eric-do.github.io/Closures/) I had made an incorrect assumption about a problem statement. This time I somehow ***overthought*** it, thinking the request might intentionally be for something unintuitive, and misinterpreted again.
 
-Let's try to figure it out.
+The question was basically, given a tree node and a callback function, create a new tree where all values have been modified by the callback. *A new tree must be returned and the old tree must remain unchanged*.
 
-## Method is called by owning object
+## A thought process under fire
+I had been feeling confident all last week doing our projects because everything was fun and time constraints weren't difficult. What I forgot about was how much I struggle under crunch time.
 
-In a method, *this* refers to the object the method belongs to *at time of execution*. 
+### First mistake: panic
+Let's just get it out there. The root cause of everything today was that I panicked when I read the problem statement. I thought it was much harder than it actually was, heard the clicking of keys around me, and let my anxiety shoot through the roof. I went **fullspeed** ahead in the **wrong** direction.
 
-If we have an object called *eric*, which has a method *move()*, it'd look like this:
+### Second mistake: problem analysis
+Continuing along the wrong path, I didn't stop to consider I had the wrong intepretation. 
 
-```javascript
-var person = {
-  position: 0,
-  move: function() {
-    this.position++;
-  }
-};
-```
+The question was to take the original tree, and modify all branches under it, but not the original tree itself. 
+- **My initial interpretation:** given a reference to a tree, modify all branches under the tree except the tree itself, using a callback function
+- **The correct interpretation:** given a reference to a tree, return a copy of that tree where all tree branches have been modified by a callback function
 
-When we call the function move(), we'd do it like this:
+I drew the diagram, wrote the pseudocode, and began coding. I finished the problem with my initial interpretation, checked the output, then checked the clock. It was 9:30. I breathed a sigh of relief, and reread the problem. 
 
-```javascript
-person.move(); // position === 1
-```
+Then I began to realize my interpretation could have been wrong. 
 
-*move()* is called by *person*, and inside the *move* function, *this* references the *person* object. This is obvious enough just by looking to the left of the dot.
+I had to return a new tree instead of modifying the old one.
 
+### Third mistake: rushing for a fix
+I hauled ass and didn't take time to pseudocode anymore.
 
-**But there are twists!** 
+I panicked further, redid the problem, this time trying to return a new tree. The logic became convoluted due to time and anxiety, and in the end my code had undefined values that caused the entire test to fail.
 
-## Method is called by global object
+I had no choice left but to submit a pull request with broken code. My fingers were shaking from the frustration and anxiety, and I even made the wrong pull request.
 
-Remember, inside a function, *this* belongs to *the object that executes the function call*. 
+This just doesn't happen to me during standard coding.
 
-Why is this confusing? Because sometimes a function isn't immediately executed. Instead it's passed to another function (e.g. setTimeout(*person.sayHi*, 1000)) to be executed at a later time. At the time the function setTimeout(person.sayHi, 1000) is executed, *this* is a reference to the object that executed sayHi(), even if sayHi was passed was a method of a separate object (person).
+## Reflection
+When I got back to my desk I was in pieces. How could it have been so hard? I sat back and rethought the problem, and realized it was so much simpler than I had thought it to be. I finished up the toy problems for the morning, then redid the problem, and finished it in about 10 minutes.
 
-Let's look. The object below contains the function *sayHi*. The function's output includes a reference to the calling object's name property.
+What's the lesson for next time? Well, for one thing, in a moment of panic, don't let seconds seem like hours. An extra 30 seconds of thoughtful consideration wouldn't have hurt anything.
 
-```javascript
-var person = {
-  name: 'eric',
-  sayHi: function() {
-    console.log('Hi, my name is ' + this.name);
-  }
-};
+Second, next time I either need to just take myself out of the room so I can focus, or force myself to not be moved by the progress around me.
 
-setTimeout(person.sayHi, 1000);
-```
+Third, even if I realize I need to redo code, I need to do so thoughtfully. It's just a complete clusterf*** otherwise.
 
-So in *setTimeout(person.sayHi, 1000)*, what is the calling object? 
-
-*setTimeout* is a **global** function, which means its *this* is a reference to the *window* object. This means the window object is also the object which executes sayHi(), making the *this* in sayHi a reference to the **window object!**
-
-**setTimeout** has the **function definition** as a parameter, and executes it at a *later* time. Why is the function definition important? Because all *setTimeout* has is the **function description**, and nothing else. A *function description* is **not** an execution of the function itself, and has no other special information besides the details of how to execute the function. 
-
-In a simpler example, if you pass (10 * 5) as a parameter to a function, the function receives 50, *not the specifics of the parameter operation!* 
-
-In fact, *setTimeout* has no idea who 'person' is, or that 'person' owns the function object. It simply has the function definition to execute at a later time.
-
-Therefore, the object *this* references isn't 'person'. *This* references the object it's called by. 
-
-Since setTimeout executes sayHi, and setTimeout is called by the global object, which is **window**, the window object is what *this* references. 
-
-When we call
-
-```javascript
-setTimeout(person.sayHi, 1000);
-```
-
-*this* is a reference to the window object, which does **not** have a *name* property, so *name* is undefined. The output is then:
-```
-Hi, my name is 
-```
-
-## bind()
-
-When we encounter situations where it's possible to lose a *this* binding, it's possible to permanently bind *this* using *bind()*. 
-
-*bind()* is a method of all function objects, and receives a *this* reference as a parameter to bind the function to.
-
-In the previous example, *this* referenced the window object.
-
-```javascript
-setTimeout(person.sayHi, 1000); // Hi, my name is 
-```
-
-If we want to keep reference to the person object, we can change the call to:
-
-```javascript
-setTimeout(person.sayHi.bind(person), 1000); // Hi, my name is eric
-```
-
-Note, bind is similar to apply() and call() in that it forces a *this* reference, but unlike apply() and call() (see next session), it does *not* immediately execute the function.
-
-
-## apply() and call()
-
-Along with bind(), every function object has an apply() method and a call() method. Similar to bind(), they force a *this* reference.
-
-The difference is apply() and call() will execute the function immediately.
-
-*apply()* and *call()* have essentially the same functionality, except if called on a function with parameters, *apply()* accepts an array of parameters and *call()* accepts a list of N parameters.
-
-```javascript
-person.listAppendages.apply(person, ['arms', 'legs']);
-person.listAppendages.call(person, 'arms', 'legs');
-```
-
-**Important:** we should *not* use apply() nor call() in the setTimeout function in the previous example. Recall that apply() and call() will execute a function *immediately*. So if used in the context of setTimeout, they would cause the parameter function to execute regardless of wait time.
+Monday's not off to the best start, but I have to try to keep accepting these challenges as growth. **Onwards!**
