@@ -3,7 +3,7 @@ layout: post
 title: "I bombed today's self assessment"
 comments: true
 ---
-I told myself coming in that whatever the requirements were, I need to be very cautious about misinterpreting them. Recall from my [previous post](https://eric-do.github.io/Closures/) I had made an incorrect assumption about a problem statement. This time I somehow ***overthought*** it, thinking the request might intentionally be for something unintuitive, and misinterpreted again.
+I told myself coming in that whatever the requirements were, I needed to be very cautious about misinterpreting them. Recall from my [previous post](https://eric-do.github.io/Closures/) I had made an incorrect assumption about a problem statement. This time I somehow ***overthought*** it, thinking the request might intentionally be for something unintuitive, and misinterpreted again.
 
 The question was basically, given a tree node and a callback function, create a new tree where all values have been modified by the callback. *A new tree must be returned and the old tree must remain unchanged*.
 
@@ -11,14 +11,40 @@ The question was basically, given a tree node and a callback function, create a 
 I had been feeling confident all last week doing our projects because everything was fun and time constraints weren't difficult. What I forgot about was how much I struggle under crunch time.
 
 ### First mistake: panic
-Let's just get it out there. The root cause of everything today was that I panicked when I read the problem statement. I thought it was much harder than it actually was, heard the clicking of keys around me, and let my anxiety shoot through the roof. I went **fullspeed** ahead in the **wrong** direction.
+Let's just get it out there. The root cause of everything today was that I panicked when I read the problem statement. I thought it was much harder than it actually was, heard the clicking of keys around me, and *let* my anxiety shoot through the roof. I went **fullspeed** ahead in the **wrong** direction.
 
 ### Second mistake: problem analysis
 Continuing along the wrong path, I didn't stop to consider I had the wrong intepretation. 
 
-The question was to take the original tree, and modify all branches under it, but not the original tree itself. 
+The question was to take a reference to a tree, modify all branches it, but not change the original tree itself. 
 - **My initial interpretation:** given a reference to a tree, modify all branches under the tree except the tree itself, using a callback function
 - **The correct interpretation:** given a reference to a tree, return a copy of that tree where all tree branches have been modified by a callback function
+
+So given this tree, if we call a function on node 2 to double all values:
+
+```
+       1
+     /    \
+    2       3
+   / \      / \     
+  4   5    6   7
+```
+
+I thought we were doing this:
+```
+       1
+     /    \
+    2       3
+   / \      / \     
+  8   10    6   7
+```
+
+But we were supposed to return this:
+```
+    4      
+   / \    
+  8   10  
+```
 
 I drew the diagram, wrote the pseudocode, and began coding. I finished the problem with my initial interpretation, checked the output, then checked the clock. It was 9:30. I breathed a sigh of relief, and reread the problem. 
 
