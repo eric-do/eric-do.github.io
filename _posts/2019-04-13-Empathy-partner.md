@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Empathy as a paired partner"
+title: "Week 1 Review: Empathy as a paired partner"
 comments: true
 date: 2019-04-13 00:00:01
 ---
