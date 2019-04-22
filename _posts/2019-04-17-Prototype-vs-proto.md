@@ -3,8 +3,7 @@ layout: post
 title: "Classes, __Proto__ vs Prototype"
 comments: true
 ---
-Hack Reactor week 2 is done! Let's do a review over some beer.
-![Image source is not mine](/images/proto_diagram.png)
+![Image](/images/proto_diagram.png)
 To understand the different between \_\_proto__ and Prototype, it's important to understand the definitions of terms involved in _Class Inheritence_.
 
 Let's start with **Class**.
