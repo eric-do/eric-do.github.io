@@ -3,22 +3,8 @@ layout: post
 title: "React Gotchas"
 comments: true
 ---
-## Setup: file structure
-1. Create folders: src/components, src/data, src/styles
-2. Create index files: src/index.js ./index.html
-3. Create package.json: make sure to include react, react-dom, jquery, babel, etc
-4. Index.html: dependencies like jquery and styles go in the header, component js files go at the end of body
+These are some of the mistakes I found myself making more than once while building my first React app. If I write them down I'm less likely to make them again :)
 
-## Setup: run
-```
-babel . --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline --watch
-```
-```
-live-server
-```
-
-
-## Gotcha moments during coding
 ### Class names
 React requires 'className' rather than 'class' for HTML tags.
 ```
