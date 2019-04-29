@@ -88,7 +88,7 @@ class App extends React.Component {
 ### componentDidMount
 We don't have a componentDidMount function in this app, but I wanted to mention if we did, it'd be executed immediately following the completion of the constructor function. 
 
-## Add Movie functionality
+### Add Movie functionality
 First we create a handler for when users submit a new movie. The handler should:
 * Prevent default form submit action (page reoload)
 * Get the title from the input field
