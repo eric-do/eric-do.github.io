@@ -3,8 +3,6 @@ layout: post
 title: "React Gotchas"
 comments: true
 ---
-# Movie List
-
 ## Setup: file structure
 1. Create folders: src/components, src/data, src/styles
 2. Create index files: src/index.js ./index.html
