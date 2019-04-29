@@ -1,8 +1,16 @@
 ---
 layout: post
-title: "How to build a React App"
+title: "How to build a React App: Movie List"
 comments: true
 ---
+This is a start of a series of posts where I'll be implementing a React app. These are my plans:
+
+[x] Build MVP for adding/searching to a list in React
+[x] Refactor app to React-Redux (to be shown in a following post)
+[ ] Pull data from API and implement a backend
+[ ] Style app for production aesthetic
+
+
 ## Setup: Dependencies
 Babel for ES6 transpilation
  ```
