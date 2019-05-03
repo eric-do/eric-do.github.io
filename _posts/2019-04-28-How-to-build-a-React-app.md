@@ -3,12 +3,14 @@ layout: post
 title: "How to build a React App: Movie List"
 comments: true
 ---
-This is a start of a series of posts where I'll be implementing a React app. These are my plans:
+This is a start of a series of posts where I'll be implementing a React app. I'm building MovieList, which is taken from a popular [public repo](https://github.com/bkilrain/framework-practice-movie-list-react).
 
-[x] Build MVP for adding/searching to a list in React
-[x] Refactor app to React-Redux (to be shown in a following post)
-[ ] Pull data from API and implement a backend
-[ ] Style app for production aesthetic
+These are my plans:
+
+- [x] Build MVP for adding/searching to a list in React
+- [x] Refactor app to React-Redux (to be shown in a following post)
+- [ ] Pull data from API and implement a backend
+- [ ] Style app for production aesthetic
 
 
 ## Setup: Dependencies
