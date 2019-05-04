@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Database Gotchas"
+comments: true
+---
+
 Let's review some hard learning lessons from our database project.
 
 ## Tables
