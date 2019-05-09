@@ -1,21 +1,24 @@
 ---
 layout: post
-title: "Configuring Node, Express, Babel, for React"
+title: "Setting up the SERN stack"
 comments: true
 ---
-I'm currently working on building React apps without create react app. This is reference for my future self if I need it again :)
+I'm currently working on building React apps without create-react-app. This post is about setting up the enviornment with respect to the SERN (SQL, Express, React, Node) stack.
 
 # Setup
+
 ## TL;DR
 Ulimately you'll want these running concurrently:
-* Nodemon (Express)
-* Babel
-* MySQL
+* [ ] MySQL server
+* [ ] Nodemon (auto builds Node and Express BE, and serves your React app)
+* [ ] Babel (dynamically transpile your React app)
 
-We'll walk through how to make that happen.
+Nodemon auto builds Node and Express BE, and serves your React app. Babel dynamically transpiles your React app.
+
+When there's no backend I'd normally use live-server to run my React code, which automatically reloads when it detects changes. When there's no backend though, Nodemon will do that job.
 
 ## Install dependencies
-Note that the TA package.json file will have dependencies listed for npm install. You should install from there rather than trusting any global installs, but this is included for reference in case it's needed for this week's projects.
+Normally we'd expect a package.json file with dependencies listed for npm install. You should install from there rather than trusting any global installs, but this is included for reference in case it's needed for this week's projects.
 ```
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -71,15 +74,32 @@ app.listen(port, () => {
 ```
 
 ## SQL
-Load your schema with this script
+### MySQL DB
+Here's what a schema may look like for a user table
+```sql
+CREATE DATABASE shopping;
+
+USE shopping;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT,
+  username VARCHAR(50),
+  email VARCHAR(50),
+  pswd VARCHAR(50),
+  PRIMARY KEY (id)
+);
+```
+
+You'd then load your schema with this script:
 ```
 mysql -u root < path/to/schema.sql
 ```
 
-## Sequelize
-If you want to save yourself from some headache, it's nicer to use Sequelize.
+### Sequelize
+If you want to save yourself from some headache, it's nicer to use Sequelize. 
 
-The following code will set up a user table.
+You still need to create your database either via script or manually, but the following code will sync and create your user table if it doesn't exist.
+
 ```javascript
 const mysql = require('mysql2')
 const Sequelize = require('sequelize');
@@ -106,6 +126,30 @@ const User = db.define('user', {
 User.sync().then(() => {
   console.log('User table synced');
 })
+```
+
+Create new users:
+```javascript
+User.create(user).then(data => {
+      console.log('Record ID is: ' + data.id);
+      res.send(data.id.toString());
+    });
+```
+
+Update/insert users:
+```javascript
+    User.upsert(user).then(data => {
+      console.log('User updated');
+      res.status(200);
+    });
+```
+
+Find users by key:
+```javascript
+User.findByPk(user.id).then((data) => {
+    console.log('user found: ' + JSON.stringify(data.get()));
+    res.send(data.get());
+  })
 ```
 
 ## React
