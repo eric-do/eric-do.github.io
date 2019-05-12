@@ -131,7 +131,7 @@ eric.save((err) => {
   console.log(`Created new author ${eric.name}`));
 }
 ```
-
+## Creating multiple documents
 Let's say we want to create many documents at one time using an array. Since document creation is async, we need an asycronous function that wraps each individual creation. One option would be to push each promise into an array and run them all with Promise.all().
 
 Luckily Mongoose comes with an insertMany() method, and it works like this:
