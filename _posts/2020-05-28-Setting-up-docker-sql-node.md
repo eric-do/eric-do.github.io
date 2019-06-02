@@ -3,7 +3,14 @@ layout: post
 title: "Setting up Docker with a Node app"
 comments: true
 ---
-Long time no post! Today I went through the torturous exercise of trying to set up my app with Docker. The most difficult aspect of this was trying to get my app to access my SQL DB. Since initially the SQL DB exists locally and not in the app container, this meant having to set the DB up with its own container as well. This presented its own challenges in terms of permissions, so I'm documenting so I don't forget.
+Long time no post! Today I went through the torturous exercise of trying to set up my app with Docker. The most difficult aspect of this was trying to get my app to access my SQL DB. I can't guarantee this is the best way, but the TL;DR of it is:
+1. Create and validate docker-compose.yml and .dockerfile files
+2. Add files to project and push project to Github
+3. Install docker, docker-compose, and git on your Amazon EC instance
+4. Pull code from Github to Amazon EC2
+5. Update security groups on EC2
+6. Build your app using docker-compose.yml
+7. Seed your data and verify your app
 
 # Set up your docker-compose file
 Your docker-compose has objectives:
