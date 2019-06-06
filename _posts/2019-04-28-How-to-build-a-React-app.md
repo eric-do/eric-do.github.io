@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "How to build a React App: Movie List"
+title: "How to build a React App"
 comments: true
 ---
-This is a start of a series of posts where I'll be implementing a React app. I'm building MovieList, which is taken from a popular [public repo](https://github.com/bkilrain/framework-practice-movie-list-react).
+I'm learning React right now, so this is a post about how to do a simple application - setup, simple code.
 
 These are my plans:
 
