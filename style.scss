@@ -58,6 +58,7 @@ h2 {
 
 h3 {
   font-size: 20px;
+  color: CornflowerBlue;
 }
 
 h4 {
@@ -67,6 +68,8 @@ h4 {
 
 p {
   margin: 15px 0;
+  color: $darkGray;
+  font-family: Camphor,Open Sans,Segoe UI,sans-serif;
 }
 
 a {
@@ -81,6 +84,8 @@ a {
 ul, ol {
   margin: 15px 0;
   padding-left: 30px;
+  color: $darkGray;
+  font-family: Camphor,"Open Sans",Segoe UI,sans-serif;
 }
 
 ul {
@@ -269,8 +274,9 @@ nav {
   .read-more {
     text-transform: none;
     text-decoration: underline;
-    color: #a0aabf;
+    color: CornflowerBlue;
     font-size: 14px;
+    font-family: Camphor,"Open Sans",Segoe UI,sans-serif;
   }
 }
 
