@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Functional Class instantion vs. ES6 Class instantion performance"
+title: "Functional Class instantiation vs. ES6 Class instantion performance"
 comments: true
 date: 2019-04-13 00:01:00
-published: false
+published: true
 ---
 There are 5 different instantiation patterns:
 1. Functional
